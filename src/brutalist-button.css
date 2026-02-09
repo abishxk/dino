@@ -1,0 +1,234 @@
+/* ===============================
+   Valentine Brutalist Buttons
+================================ */
+
+/* Container */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+/* ===============================
+   Base Button
+================================ */
+
+.brutalist-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 180px;
+    height: 60px;
+
+    border-radius: 50px;
+    border: 3px solid #ffb3c6;
+
+    background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+            0 6px 15px rgba(255, 107, 157, 0.4),
+            4px 4px 0 #000;
+
+    transition: all 0.3s ease;
+}
+
+
+/* ===============================
+   Shared Text
+================================ */
+
+.btn-text {
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.25s ease;
+}
+
+
+/* ===============================
+   Hover Shine
+================================ */
+
+.brutalist-button::before,
+.brutalist-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+    );
+}
+
+.brutalist-button::before { left: -120%; }
+.brutalist-button::after  { left: 120%; }
+
+.brutalist-button:hover::before {
+    animation: swipeRight 1.5s infinite;
+}
+
+.brutalist-button:hover::after {
+    animation: swipeLeft 1.5s infinite;
+}
+
+
+/* ===============================
+   Hover / Click
+================================ */
+
+.brutalist-button:hover {
+    background: linear-gradient(135deg, #ff8fab, #ff6b9d);
+    border-color: #fff;
+
+    transform: translate(-4px, -4px) scale(1.05);
+
+    box-shadow:
+            0 12px 30px rgba(255,107,157,.6),
+            10px 10px 0 #000;
+}
+
+.brutalist-button:active {
+    transform: scale(0.95);
+}
+
+
+/* ===============================
+   YES Button
+================================ */
+
+.yes-brutal {
+    flex-direction: column;
+}
+
+
+/* YES content wrapper */
+
+.yes-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    gap: 2px;
+}
+
+
+/* Main YES text */
+
+.yes-brutal .btn-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+
+/* Subtext */
+
+.btn-subtext {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Hover reveal */
+
+.yes-brutal:hover .btn-subtext {
+    height: 14px;
+    opacity: 1;
+}
+
+.yes-brutal:hover .btn-text {
+    transform: scale(0.95);
+}
+
+
+/* ===============================
+   NO Button
+================================ */
+
+.no-brutal .btn-text {
+    font-size: 1.4rem;
+    letter-spacing: 1.8px;
+}
+
+.no-brutal:hover {
+    transform: translate(-4px, -4px) rotate(-2deg) scale(1.05);
+}
+
+
+/* ===============================
+   Animations
+================================ */
+
+@keyframes swipeRight {
+    100% {
+        transform: translateX(240%) skew(-30deg);
+    }
+}
+
+@keyframes swipeLeft {
+    100% {
+        transform: translateX(-240%) skew(-30deg);
+    }
+}
+
+
+/* ===============================
+   Mobile
+================================ */
+
+@media (max-width: 600px) {
+
+    .brutalist-button {
+        width: 150px;
+        height: 52px;
+    }
+
+    .btn-text {
+        font-size: 1.2rem;
+        letter-spacing: 1.4px;
+    }
+
+    .btn-subtext {
+        font-size: 0.7rem;
+        opacity: 0.6;
+        height: auto;
+    }
+
+    .yes-brutal .btn-text {
+        font-size: 1.2rem;
+    }
+
+    .no-brutal .btn-text {
+        font-size: 1.1rem;
+    }
+}
